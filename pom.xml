@@ -21,6 +21,24 @@
 	</properties>
 
 	<dependencies>
+	<!--测试使用zuul的过滤器功能  使用redis进行测试  start  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<exclusions>
+				<!--不依赖Redis的异步客户端lettuce -->
+				<exclusion>
+					<groupId>io.lettuce</groupId>
+					<artifactId>lettuce-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!--引入Redis的客户端驱动jedis -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
+	<!--测试使用zuul的过滤器功能  使用redis进行测试  end  -->
 	<!-- 热部署模块 start -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
